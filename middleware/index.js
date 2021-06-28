@@ -1,7 +1,6 @@
 
 module.exports = function (app) {
   const express = require('express');
-  const morgan = require('morgan');
   const cookieParser = require('cookie-parser');
   const session = require('express-session');
   const { cookiesCleaner } = require('./cookie');
@@ -16,8 +15,6 @@ module.exports = function (app) {
   app.set('view engine', 'hbs');
   app.set('views', path.join(__dirname, '..', 'views'));
   hbs.registerPartials(path.join(__dirname, '..', 'views', 'partials')); // !!!!!PARTIALS
-
-  app.use(morgan('dev'));
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
